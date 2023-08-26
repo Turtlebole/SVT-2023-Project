@@ -21,8 +21,11 @@ public class Group {
     private String name;
     @Column(name = "description")
     private String description;
+    @Column(name = "creationDate")
     private LocalDateTime creationDate;
+    @Column(name = "suspended")
     private boolean isSuspended;
+    @Column(name = "reason")
     private String suspensionReason;
 
 }

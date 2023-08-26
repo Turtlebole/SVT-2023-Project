@@ -1,7 +1,6 @@
 package com.example.backend.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,9 +15,14 @@ import java.time.LocalDateTime;
 @Table(name = "comments")
 public class Comment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private int id;
+    @Column(name = "text")
     private String text;
-    private LocalDateTime timestamp;
+    @Column(name = "timeStamp")
+    private LocalDateTime timeStamp;
+    @Column(name = "deleted")
     private boolean isDeleted;
 
 }

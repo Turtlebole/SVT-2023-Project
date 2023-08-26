@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "admins")
 public class Administrator extends User {
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "admin")
     private Set<Banned> bans = new HashSet<Banned>();
 }
