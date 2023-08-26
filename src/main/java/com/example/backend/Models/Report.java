@@ -1,0 +1,27 @@
+package com.example.backend.Models;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.relational.core.mapping.Table;
+
+import java.time.LocalDateTime;
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "reports")
+public class Report {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private int id;
+    @Column(name = "reason")
+    private EReportReason reason;
+    @Column(name = "timeStamp")
+    private LocalDateTime timeStamp;
+    private User byUser;
+    @Column(name = "accepted")
+    private boolean isAccepted;
+}
