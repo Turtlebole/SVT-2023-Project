@@ -23,4 +23,12 @@ public class GroupRequest {
     private LocalDateTime createdAt;
     @Column(name = "at")
     private LocalDateTime at;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="group")
+    private Group group;
 }

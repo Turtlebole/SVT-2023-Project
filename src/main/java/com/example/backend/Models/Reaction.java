@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
@@ -21,4 +23,18 @@ public class Reaction {
     private EReactionType type;
     @Column(name = "timeStamp")
     private LocalDateTime timeStamp;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "post")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Post post;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "comment")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Comment comment;
 }

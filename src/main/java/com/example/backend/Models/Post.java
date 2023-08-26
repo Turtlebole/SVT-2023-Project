@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,4 +25,17 @@ public class Post {
     @Column(name = "creationDate")
     private LocalDateTime creationDate;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="group")
+    private Group group;
+
+    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private Set<Comment> comments = new HashSet<Comment>();
+
+    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private Set<Reaction> reactions = new HashSet<Reaction>();
 }

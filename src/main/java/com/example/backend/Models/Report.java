@@ -21,7 +21,21 @@ public class Report {
     private EReportReason reason;
     @Column(name = "timeStamp")
     private LocalDateTime timeStamp;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
     private User byUser;
     @Column(name = "accepted")
     private boolean isAccepted;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "reportedUser")
+    private User reportedUser;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "post")
+    private Post post;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "comment")
+    private Comment comment;
 }

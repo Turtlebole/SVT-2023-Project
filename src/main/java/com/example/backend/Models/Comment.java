@@ -25,4 +25,11 @@ public class Comment {
     @Column(name = "deleted")
     private boolean isDeleted;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "post")
+    private Post post;
 }

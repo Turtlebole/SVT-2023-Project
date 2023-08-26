@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,4 +31,6 @@ public class Group {
     @Column(name = "reason")
     private String suspensionReason;
 
+    @OneToMany(mappedBy = "group",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Post> posts = new HashSet<Post>();
 }

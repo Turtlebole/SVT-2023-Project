@@ -19,4 +19,17 @@ public class Banned {
     private int id;
     @Column(name = "timeStamp")
     private LocalDateTime timeStamp;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "admin")
+    private Administrator admin;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "group")
+    private Group group;
+
 }
