@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController
 public interface UserRepository extends JpaRepository<User, Integer> {
-    public List<User> findAllUsers();
-    public Optional<User> findById(int id);
-    public List<User> findByEmail(String email);
+     List<User> findAllUsers();
+     Optional<User> findById(int id);
+     Optional<User> findByEmail(String email);
 }
