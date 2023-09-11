@@ -15,7 +15,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "groups")
+@Table(name = "all_groups")
 public class Group {
 
     @Id
@@ -35,8 +35,7 @@ public class Group {
     private User groupAdmin;
 
 
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
-    private Set<User> groupUserList = new HashSet<>();
+
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "group")

@@ -1,5 +1,6 @@
 package com.example.baraotome.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,8 +11,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "group_admins")
 public class GroupAdmin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

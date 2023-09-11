@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "reactions")
 public class Reaction {
@@ -26,19 +25,14 @@ public class Reaction {
     private LocalDateTime timeStamp;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "post")
+    @JoinColumn(name = "post_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Post post;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "comment")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Comment comment;
 
     public void setTimestamp(LocalDateTime now) {
     }

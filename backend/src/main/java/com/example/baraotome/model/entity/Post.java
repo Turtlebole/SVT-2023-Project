@@ -1,5 +1,6 @@
 package com.example.baraotome.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "posts")
 public class Post {
@@ -24,10 +26,10 @@ public class Post {
     private LocalDateTime creationDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "groups")
+    @JoinColumn(name = "group_id")
     private Group group;
 }
