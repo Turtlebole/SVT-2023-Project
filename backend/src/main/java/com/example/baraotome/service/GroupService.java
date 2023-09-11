@@ -9,8 +9,8 @@ public interface GroupService {
 
     List<Group> getAllGroups();
     List<Group> findByName(String name);
-    Group findById(Integer groupId);
-    Group findGroupById(Integer groupId);
+    Group findById(Integer group);
+    Group findGroupById(Integer group);
     Group createGroup(Group group);
     Group updateGroup(Integer group, Group updated);
     void save(Group group);

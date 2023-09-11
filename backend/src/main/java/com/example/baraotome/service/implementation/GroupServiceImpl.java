@@ -25,8 +25,8 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public Group findGroupById(Integer groupId) {
-        return groupRepository.findById(groupId).orElse(null);
+    public Group findGroupById(Integer group) {
+        return groupRepository.findById(group).orElse(null);
     }
 
     @Override
@@ -60,8 +60,8 @@ public class GroupServiceImpl implements GroupService {
     public void save(Group group) {groupRepository.save(group);}
 
     @Override
-    public void delete(Integer groupId) {
-        groupRepository.deleteById(groupId);
+    public void delete(Integer group) {
+        groupRepository.deleteById(group);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public Group findById(Integer groupId) {
+    public Group findById(Integer group) {
         return null;
     }
 }

@@ -39,4 +39,7 @@ public class Reaction {
     @JoinColumn(name = "comment")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Comment comment;
+
+    public void setTimestamp(LocalDateTime now) {
+    }
 }

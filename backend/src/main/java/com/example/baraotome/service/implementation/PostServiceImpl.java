@@ -36,7 +36,6 @@ public class PostServiceImpl implements PostService {
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
-
     @Override
     public Post createPost(Post post) {
         return postRepository.save(post);
@@ -45,7 +44,6 @@ public class PostServiceImpl implements PostService {
     public Post updatePost(Post post) {
         return postRepository.save(post);
     }
-
     @Override
     public void delete(Integer post) { postRepository.deleteById(post);}
 
