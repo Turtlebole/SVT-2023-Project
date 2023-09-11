@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+.naslov {
+    text-decoration: none; 
+    font-size: 300%;
+    display: inline;
+    line-height: 0.5;
+    font-family: 'GothicScript', sans-serif;
+    color: black;
+}
+
+@font-face {
+    font-family: 'GothicScript';
+    src: url('../src/assets/Cambridge.otf') format('opentype');
+}
+
+.smardan {
+    font-family: 'GothicScript', sans-serif;
+}
+
+.dugme {
+    cursor: pointer;
+    border: 1px solid #7c0101;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: #000000;
+    font-size: 200%;
+    line-height: 0;
+    padding-bottom: 8%;
+    padding-left: 20%;
+}
+
+.dugme:hover {
+    color: #ff0000;
+}
+
+.dugmekompan {
+    cursor: pointer;
+    border: 0px solid #ff0000;
+    background-color: transparent;
+    color: #000000;
+    font-size: 400%;
+}
+
+.dugmekompan:hover {
+    color: #7c0101;
+}
+
+.bg-grey {
+    background-color: #7c0101;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 5);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden; }

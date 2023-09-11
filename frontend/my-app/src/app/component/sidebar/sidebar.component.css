@@ -1,0 +1,10 @@
+.sidebar {
+    width: 20%; /* Adjust the width as needed */
+    height: 92.6vh; /* Full height of the viewport */
+    background-color: #920000;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 5); /* Add a subtle shadow */
+  }
