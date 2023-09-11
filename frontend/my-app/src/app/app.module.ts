@@ -11,6 +11,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
 import { GrupaComponent } from './component/grupa/grupa.component';
 import { FriendsComponent } from './component/friends/friends.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   
@@ -21,7 +22,8 @@ import { FriendsComponent } from './component/friends/friends.component';
     RegisterComponent,
     HomeComponent,
     GrupaComponent,
-    FriendsComponent
+    FriendsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

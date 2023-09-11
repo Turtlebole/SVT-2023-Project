@@ -1,0 +1,43 @@
+body {
+    background-color: bisque;
+}
+
+.bg-light {
+    background-color: bisque !important;
+}
+
+#textcolor {
+    color: #fff;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+    margin-right: 3px;
+}
+
+.gradient-custom-2 {
+    background: bisque;
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+}
+    
+  img.profile-photo-lg{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.pt-5, .py-5 {
+  padding-top: .3rem !important;
+
+}
