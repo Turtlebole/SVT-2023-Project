@@ -1,6 +1,8 @@
 package com.example.baraotome.service.implementation;
 
 import com.example.baraotome.model.entity.ERole;
+import com.example.baraotome.model.entity.Group;
+import com.example.baraotome.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import com.example.baraotome.model.entity.User;
 import com.example.baraotome.repository.UserRepository;
 import com.example.baraotome.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +23,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private GroupRepository groupRepository;
 
     /*
     @Autowired
@@ -39,6 +44,23 @@ public class UserServiceImpl implements UserService {
             return user.get();
         }
         return null;
+    }
+
+    @Override
+    public User findByAdmin(Integer user) {
+        return null;
+    }
+
+    @Override
+    public List<Group> findGroupsByAdmin(Integer user) {
+        List<Group> groupsByAdmin = new ArrayList<>();
+        List<Group> allGroups = groupRepository.findAll();
+        for (Group group : allGroups) {
+            if (group.getGroupAdmin().getId() == user) {
+                groupsByAdmin.add(group);
+            }
+        }
+        return groupsByAdmin;
     }
 
     @Override
@@ -62,5 +84,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return this.userRepository.findAll();
+    }
+
+    @Override
+    public void save(User user) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }
