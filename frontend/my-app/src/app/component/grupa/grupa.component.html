@@ -1,12 +1,25 @@
-<div class="card w-100">
-    <div class="card-body p-4">
-      <div class="">
-        <h5>MAV Group</h5>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, rerum?
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <button type="button" class="btn btn-outline-dark">Pridruži</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body style="background-color: #920000;">
+<div *ngFor="let group of groups" style="padding-left: 2%; padding-right: 2%;">
+<br>
+    <div class="card w-100" style="background-color: #920000;">
+        <div class="card-body p-4">
+            <div class="">
+                <h5>{{ group.name }}</h5>
+                <p>{{ group.description }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-outline-danger">Pridruži</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+</body>
+</html>

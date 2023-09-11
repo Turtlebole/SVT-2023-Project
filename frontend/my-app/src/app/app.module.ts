@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -12,6 +13,7 @@ import { HomeComponent } from './component/home/home.component';
 import { GrupaComponent } from './component/grupa/grupa.component';
 import { FriendsComponent } from './component/friends/friends.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { EditprofileComponent } from './component/editprofile/editprofile.component';
 
 @NgModule({
   
@@ -23,7 +25,8 @@ import { ProfileComponent } from './component/profile/profile.component';
     HomeComponent,
     GrupaComponent,
     FriendsComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

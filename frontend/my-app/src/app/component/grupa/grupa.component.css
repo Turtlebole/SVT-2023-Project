@@ -58,6 +58,17 @@ a {
     color: #7c0101;
 }
 
+.card {
+    border: 1px solid #000;
+    background-color: #7c0101 !important;
+    color: #000 !important;
+}
+
+.btn .btn-outline-dark {
+    color: #000 !important;
+    outline: #000 !important;
+}
+
 #sectionplace {
     margin-right: 50%;
 }
