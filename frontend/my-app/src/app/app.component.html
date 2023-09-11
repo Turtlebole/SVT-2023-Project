@@ -1,29 +1,2 @@
-<html>
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body style="background-color: bisque;">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-grey" style="z-index: 10000;">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="navbar-brand mt-2 mt-lg-0" href="../html/index.html">
-            <img src="../assets/stickers-rose-silhouette.jpg.png" height="45" alt="logo">
-          </a>
-          <div>
-            <h1 a class="naslov" style="padding-left: 5%; white-space: nowrap;">{{title}}</h1>
-          </div>
-        </div>
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <button type="button" class="smardan dugme" style="cursor: pointer; vertical-align: middle;" (click)="openPopup()">Bejegyzés</button>
-        </div>
-      </div>
-    </nav>
-  </header> 
-  <app-login *ngIf="isPopupOpen" (close)="closePopup()" style="z-index: 10000;"></app-login>
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
-</body>
 
 <router-outlet></router-outlet>

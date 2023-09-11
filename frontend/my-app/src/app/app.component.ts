@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Bara Otome';
-
-  isPopupOpen = false;
-
-  openPopup() {
-    this.isPopupOpen = true;
-    console.log("cmardan");
-  }
-
-  closePopup() {
-    this.isPopupOpen = false;
-  }
 }
