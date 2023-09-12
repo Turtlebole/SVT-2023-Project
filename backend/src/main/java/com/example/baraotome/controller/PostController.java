@@ -1,5 +1,6 @@
 package com.example.baraotome.controller;
 
+import com.example.baraotome.model.dto.PostDTO;
 import com.example.baraotome.security.TokenUtils;
 import com.example.baraotome.service.GroupService;
 import com.example.baraotome.service.PostService;
@@ -27,9 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/groups")
+@RequestMapping("api/posts")
 @CrossOrigin(origins = "http://localhost:4200")
-public class GroupController {
+public class PostController {
 
     @Autowired
     GroupService groupService;
@@ -53,24 +54,24 @@ public class GroupController {
     TokenUtils tokenUtils;
 
     @GetMapping()
-    public ResponseEntity<List<GroupDTO>> getAllGroups() {
-        List<Group> groups = groupService.getAllGroups();
-        List<GroupDTO> groupDTOs = new ArrayList<>();
+    public ResponseEntity<List<PostDTO>> getAllPosts() {
+        List<Post> posts = postService.getAllPosts();
+        List<PostDTO> postDTOs = new ArrayList<>();
 
-        for (Group group : groups) {
-            GroupDTO groupDTO = new GroupDTO();
-            groupDTO.setDescription(group.getDescription());
-            groupDTO.setName(group.getName());
-            groupDTO.setId(group.getId());
-            groupDTO.setGroupAdmin(group.getGroupAdmin().getUsername());
-            groupDTOs.add(groupDTO);
+        for (Post post : posts) {
+            PostDTO postDTO = new PostDTO();
+            postDTO.setContent(post.getContent());
+            postDTO.setUserName(post.getUser().getUsername());
+            postDTO.setId(post.getId());
+            postDTO.setGroupId(post.getGroup().getId());
+            postDTOs.add(postDTO);
         }
 
         for (int i = 0; i < 20; i++) {
-            System.out.println("SMRRRRDIIIIM");
+            System.out.println("SMOSMIIIIIIM");
         }
 
-        return ResponseEntity.ok(groupDTOs);
+        return ResponseEntity.ok(postDTOs);
     }
 
 

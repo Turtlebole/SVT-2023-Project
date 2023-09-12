@@ -21,7 +21,12 @@
     </nav>
   </header> 
   <app-login *ngIf="isPopupOpen" (close)="closePopup()" style="z-index: 10000;"></app-login>
-  <div>
-    <app-sidebar></app-sidebar>
+  <div class="d-flex">
+    <div style="width: 23%;">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div style="width: 50%;">
+      <app-objava></app-objava>
+    </div>
   </div>
 </body>

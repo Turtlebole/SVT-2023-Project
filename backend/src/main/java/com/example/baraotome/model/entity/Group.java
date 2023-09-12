@@ -17,7 +17,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "all_groups")
 public class Group {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -34,9 +33,8 @@ public class Group {
     @OneToOne
     private User groupAdmin;
 
-
-
-
+    @OneToMany( mappedBy = "group", fetch = FetchType.LAZY)
+    private Set<User> groupUserList = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "group")
     private Set<Post> postList = new HashSet<Post>();

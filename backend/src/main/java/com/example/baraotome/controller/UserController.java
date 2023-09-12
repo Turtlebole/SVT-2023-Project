@@ -27,6 +27,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -51,10 +52,18 @@ public class UserController {
         this.tokenUtils = tokenUtils;
     }
     */
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public ResponseEntity<UserDTO> create(@RequestBody @Validated UserDTO newUser){
 
+        for (int m = 0; m < 10; m++) {
+            System.out.println("KAKIIIIIIM");
+        }
+        System.out.println(newUser.getEmail() + newUser.getUsername());
         User createdUser = userService.createUser(newUser);
+
+        for (int m = 0; m < 10; m++) {
+            System.out.println("KAKIIIIIIM");
+        }
 
         if(createdUser == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);

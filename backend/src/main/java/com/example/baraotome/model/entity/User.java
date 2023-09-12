@@ -9,37 +9,44 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    private int id;
-    @Column(name = "username", nullable = false)
+    private Integer id;
+
+    @Column(unique = true, nullable = false)
     private String username;
-    @Column(name = "password", nullable = false)
+
+    @Column(nullable = false)
     private String password;
-    @Column(name = "email", unique = true, nullable = false)
+
+    @Column(nullable = false)
     private String email;
-    @Column(name="lastLogin")
+
+    @Column
     private LocalDateTime lastLogin;
-    @Column(name = "firstName", nullable = false)
+
+    @Column(nullable = false)
     private String firstName;
-    @Column(name = "lastName", nullable = false)
+
+    @Column(nullable = false)
     private String lastName;
-    @Column(name = "displayName")
-    private String displayName;
-    @Column(name="desc")
-    private String description;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ERole role;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<GroupAdmin> groupAdminList = new HashSet<GroupAdmin>();
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Post> postList = new HashSet<Post>();
+
+    @JoinColumn(name = "group_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Group group;
 }

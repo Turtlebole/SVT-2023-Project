@@ -2,14 +2,12 @@ package com.example.baraotome.model.dto;
 
 import com.example.baraotome.model.entity.User;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class UserDTO {
     private int id;
     @NotBlank
@@ -25,17 +23,19 @@ public class UserDTO {
     @NotBlank
     private String displayName;
 
+    public UserDTO() {
+        super();
+    }
 
-    public UserDTO(int id, String username, String password, String email, String firstName, String lastName, String displayName, String description) {
-        this.id = id;
+    public UserDTO(@NotBlank String firstName, @NotBlank String lastName, @NotBlank String email,
+                   @NotBlank String username, @NotBlank String password) {
+        super();
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.displayName = displayName;
     }
-
     public UserDTO(User createdUser) {
         this.id = createdUser.getId();
         this.username = createdUser.getUsername();

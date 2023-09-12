@@ -5,35 +5,32 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.data.relational.core.mapping.Table;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @Getter
 @Setter
-@Entity
 @Table(name = "reactions")
 public class Reaction {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    private int id;
-    @Column(name = "type")
-    private EReactionType type;
-    @Column(name = "timeStamp")
-    private LocalDateTime timeStamp;
+    private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EReactionType reactionType;
+
+    @Column(name = "timestamp")
+    private LocalDateTime timestamp;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "post_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
-
-    public void setTimestamp(LocalDateTime now) {
-    }
 }

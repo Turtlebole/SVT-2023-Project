@@ -18,6 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import com.example.baraotome.service.implementation.UserDetailsServiceImpl;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -60,6 +63,20 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration corsConfig = new CorsConfiguration();
+        corsConfig.applyPermitDefaultValues();
+        corsConfig.addAllowedOrigin("*");
+        corsConfig.addAllowedHeader("*");
+        corsConfig.addAllowedMethod("*");
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfig);
+
+        return new CorsFilter(source);
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // svim korisnicima dopusti da pristupe sledecim putanjama:
         // komunikacija izmedju klijenta i servera je stateless posto je u pitanju REST aplikacija
@@ -72,8 +89,25 @@ public class WebSecurityConfig {
         http.authorizeRequests()
 //                .antMatchers("/h2-console/**").permitAll()	// /h2-console/** ako se koristi H2 baza)
                 .antMatchers(HttpMethod.POST, "/api/users/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/users/signup").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/users/register").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/clubs/{id}/**").access("@webSecurity.checkClubId(authentication,request,#id)")
+                .antMatchers(HttpMethod.GET, "/api/users/all").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/users/changePassword/{username}").permitAll()
+
+                .antMatchers(HttpMethod.PUT,"/api/groups/update/{groupId}").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/api/groups/delete/{groupId}").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/groups/groups/{username}").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/groups/create/{username}").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/groups").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/groups/{group.id}").permitAll()
+
+                .antMatchers(HttpMethod.PUT,"/api/posts/update/{postId}").permitAll()
+                .antMatchers(HttpMethod.PUT,"/api/posts/update/counter/${postId}").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/api/posts/group/{groupId}").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/posts/group/{groupId}").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/posts/create").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/posts").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/api/posts/delete/{postId}").permitAll()
                 // ukoliko ne zelimo da koristimo @PreAuthorize anotacije nad metodama kontrolera, moze se iskoristiti hasRole() metoda da se ogranici
                 // koji tip korisnika moze da pristupi odgovarajucoj ruti. Npr. ukoliko zelimo da definisemo da ruti 'admin' moze da pristupi
                 // samo korisnik koji ima rolu 'ADMIN', navodimo na sledeci nacin:

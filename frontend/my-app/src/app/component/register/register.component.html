@@ -8,74 +8,67 @@
     <title>Bara Otome</title>
 </head>
 <body>
-    <section class="h-100 gradient-form" style="background-color: bisque;">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
-              <div class="card rounded-3 text-white">
-                <div class="row g-0">
-                  <div class="col-lg-6" style="background-color: #7c0101;">
-                    <div class="card-body p-md-5 mx-md-4">
-      
-                      <div class="text-center">
-                        <img src="../../../assets/stickers-rose-silhouette.jpg.png"
-                          style="width: 185px;" alt="logo">
-                        <h4 class="mt-1 mb-5 pb-1">Kit ti brata mav? Mav</h4>
-                      </div>
-      
-                      <form>
-                        <p>Ulogujte se</p>
-      
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form2Example11" class="form-control"/>
-                            <label class="form-label" for="form2Example11">Ime</label>
-                        </div>
 
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form2Example11" class="form-control"/>
-                            <label class="form-label" for="form2Example11">Prezime</label>
-                        </div>
-      
-                        <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Uloguj se</button>
-                        </div>
-      
-                        <div class="d-flex align-items-center justify-content-center pb-4">
-                          <p class="mb-0 me-2">Imate nalog?</p>
-                          <button type="button" class="btn btn-outline-dark"><a href="http://localhost:4200/home">Prijavi se</a></button>
-                        </div>
-      
-                      </form>
-      
+  <section class="vh-100" style="background-color: bisque;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="../assets/stickers-rose-silhouette.jpg.png"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form (ngSubmit)="onSubmit()">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <i class="fas fa-cubes fa-2x me-3" style="color: #ffffff;"></i>
+                      <span class="h1 fw-bold mb-0">User? Više kao user...</span>
                     </div>
-                  </div>
-                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2" style="background-color: #000000;">
-
-                    <div class="card-body p-md-5 mx-md-4">
-
-                        <form id="formcenter">
-                            <div class="form-outline mb-4">
-                                <input type="text" id="form2Example11" class="form-control"/>
-                                <label class="form-label" id="textcolor" for="form2Example11">Username</label>
-                            </div>
-        
-                            <div class="form-outline mb-4">
-                                <input type="email" id="form2Example11" class="form-control"/>
-                                <label class="form-label" id="textcolor" for="form2Example11">Email</label>
-                            </div>
-            
-                            <div class="form-outline mb-4">
-                                <input type="password" id="form2Example22" class="form-control" />
-                                <label class="form-label" id="textcolor" for="form2Example22">Password</label>
-                            </div>
-                        </form>            
+  
+                    <div class="form-outline mb-4">
+                      <input type="text" id="username" name="username" [(ngModel)]="registration.username" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Korisnicko ime</label>
                     </div>
-                  </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="email" id="email" name="email" [(ngModel)]="registration.email" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Email</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="password" name="password" [(ngModel)]="registration.password" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Password</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="text" id="firstName" name="firstName" [(ngModel)]="registration.firstName" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Ime</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="text" id="lastName" name="lastName" [(ngModel)]="registration.lastName" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Prezime</label>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
+                    </div>
+  
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Vec imate nalog?<a href="#!"
+                        style="color: #fff;">Uloguj se</a></p>
+
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

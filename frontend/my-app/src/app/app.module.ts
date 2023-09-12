@@ -14,9 +14,10 @@ import { GrupaComponent } from './component/grupa/grupa.component';
 import { FriendsComponent } from './component/friends/friends.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { EditprofileComponent } from './component/editprofile/editprofile.component';
+import { FormsModule } from '@angular/forms';
+import { ObjavaComponent } from './component/objava/objava.component';
 
 @NgModule({
-  
   declarations: [
     AppComponent,
     LoginComponent,
@@ -26,7 +27,8 @@ import { EditprofileComponent } from './component/editprofile/editprofile.compon
     GrupaComponent,
     FriendsComponent,
     ProfileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ObjavaComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { EditprofileComponent } from './component/editprofile/editprofile.compon
     MatButtonModule,
     MatDialogModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

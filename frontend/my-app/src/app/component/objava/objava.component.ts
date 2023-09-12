@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-grupa',
-  templateUrl: './grupa.component.html',
-  styleUrls: ['./grupa.component.css']
+  selector: 'app-objava',
+  templateUrl: './objava.component.html',
+  styleUrls: ['./objava.component.css']
 })
-export class GrupaComponent {
+export class ObjavaComponent {
   groups: any[] = []; // This array will store the fetched group data
 
   constructor(private http: HttpClient) {}
@@ -16,8 +16,9 @@ export class GrupaComponent {
   }
 
   fetchGroups() {
-    this.http.get('http://localhost:8080/api/groups').subscribe((data: any) => {
+    this.http.get('http://localhost:8080/api/posts').subscribe((data: any) => {
       this.groups = data; // Assign the fetched data to your 'groups' array
+      console.log(this.groups);
     });
   }
 }

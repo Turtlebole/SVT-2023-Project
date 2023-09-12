@@ -9,17 +9,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class ReactionDTO {
-    private int id;
-    @NotBlank
-    private String type;
-    @NotBlank
-    private LocalDateTime timeStamp;
+    private Integer id;
 
-    public ReactionDTO(int id, String type, LocalDateTime timeStamp) {
-        this.id = id;
-        this.type = type;
-        this.timeStamp = timeStamp;
-    }
+    private String reactionType;
+
+    private String userName;
+
+    private Integer postId;
+
 }
